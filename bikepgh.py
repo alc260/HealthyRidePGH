@@ -63,7 +63,11 @@ dfStatus = pd.read_csv('status.csv', index_col ="station_id")
 #print(dfStatus)
 
 #Commands
-command = sys.argv[2]
+try:
+    command = sys.argv[2]
+except:
+    print("failed to ender command")
+    sys.exit(1)
 
 if command == 'total_bikes':
     #total bikes
@@ -79,7 +83,12 @@ elif command == 'total_docks':
     print("total docks = ", total_docks)
 
 elif command == 'percent_avail':
-    param1 = int(sys.argv[3])
+    try:
+        param1 = int(sys.argv[3])
+    except: 
+        print("failed to enter parameter")
+        sys.exit(1)
+    
     station_status = dfStatus.loc[param1]
     num1 = station_status["num_bikes_available"]
     num2 = station_status["num_docks_available"]
@@ -90,8 +99,13 @@ elif command == 'percent_avail':
     print("output = ", avail, "%")
 
 elif command == 'closest_stations':
-    lat1 = float(sys.argv[3])
-    lon1 = float(sys.argv[4])
+    try:
+        lat1 = float(sys.argv[3])
+        lon1 = float(sys.argv[4])
+    except:
+        print("failed to enter parameters")
+        sys.exit(1)
+
     total_docks_col = dfStatus['num_docks_available']
     x = []
     for i in range(len(total_docks_col)): 
@@ -124,8 +138,12 @@ elif command == 'closest_stations':
 
 
 elif command == 'closest_bike':
-    lat1 = float(sys.argv[3])
-    lon1 = float(sys.argv[4])
+    try:
+        lat1 = float(sys.argv[3])
+        lon1 = float(sys.argv[4])
+    except:
+        print("failed to enter parameters")
+        sys.exit(1)
 
     total_docks_col = dfStatus['num_docks_available']
     x = []
@@ -159,8 +177,12 @@ elif command == 'closest_bike':
 
 
 elif command == 'station_bike_avail': 
-    lat = float(sys.argv[3])
-    lon = float(sys.argv[4])
+    try:
+        lat = float(sys.argv[3])
+        lon = float(sys.argv[4])
+    except:
+        print("failed to enter parameters")
+        sys.exit(1)
 
     total_docks_col = dfStatus['num_docks_available']
     ind = 0
@@ -179,7 +201,7 @@ elif command == 'station_bike_avail':
 
     station = dfStatus.loc[st_id]
     num = station['num_bikes_available']
-    
+
     #print(station)
     print(st_id, num)
 
