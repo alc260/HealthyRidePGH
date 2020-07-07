@@ -1,4 +1,4 @@
-# Repository: HealthyRidePGH
+# HealthyRidePGH
 
 ### bikepgh.py
 The Python program, called `bikepgh.py` that will access live data from the [HealthyRidePGH website](https://healthyridepgh.com/) and provide answers to specific queries about shared bike availability in the Pittsburgh region.
