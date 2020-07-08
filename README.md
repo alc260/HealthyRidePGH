@@ -1,4 +1,4 @@
-# HealthyRidePGH
+# HealthyRidePGH 
 
 ### bikepgh.py
 The Python program, called `bikepgh.py` that will access live data from the [HealthyRidePGH website](https://healthyridepgh.com/) and provide answers to specific queries about shared bike availability in the Pittsburgh region.
@@ -10,7 +10,7 @@ python3 bikepgh.py baseURL command [parameters]
 where baseURL is the prefix URL of the source of the data, and it is typically https://api.nextbike.net/maps/gbfs/v1/nextbike_pp/en/. This should work with ANY proper baseURL.
 
 ### Data Feeds
-Assume the baseURL parameter is stored in variable $baseURL. We will use two data feeds from the HealthyRidePGH General Bikeshare Feed Specification (GBFS) data feed, as follows:
+Assume the baseURL parameter is stored in variable $baseURL. Two data feeds from the HealthyRidePGH General Bikeshare Feed Specification (GBFS) data feed, were used as follows:
 * **Station Information**: $station_infoURL = $baseURL+'/station_information.json', which provides for each docking station: station_id, name, latitude
  and longtitude, and the total capacity (e.g., [https://api.nextbike.net/maps/gbfs/v1/nextbike_pp/en/station_information.json](https://api.nextbike.net/maps/gbfs/v1/nextbike_pp/en/station_information.json)).   
 
@@ -27,7 +27,7 @@ Sample invocation:
 python3 bikepgh.py https://api.nextbike.net/maps/gbfs/v1/nextbike_pp/en/ total_bikes
 ```
 
-Sample output of your script (meant to illustrate format only):
+Sample output of the script (meant to illustrate format only):
 ```
 Command=total_bikes
 Parameters=
@@ -42,7 +42,7 @@ Sample invocation:
 python3 bikepgh.py https://api.nextbike.net/maps/gbfs/v1/nextbike_pp/en/ total_docks
 ```
 
-Sample output of your script (meant to illustrate format only):
+Sample output of the script (meant to illustrate format only):
 ```
 Command=total_docks
 Parameters=
@@ -57,7 +57,7 @@ Sample invocation:
 python3 bikepgh.py https://api.nextbike.net/maps/gbfs/v1/nextbike_pp/en/ percent_avail 342885
 ```
 
-Sample output of your script (meant to illustrate format only):
+Sample output of the script (meant to illustrate format only):
 ```
 Command=percent_avail
 Parameters=342885
@@ -73,7 +73,7 @@ Sample invocation:
 python3 bikepgh.py https://api.nextbike.net/maps/gbfs/v1/nextbike_pp/en/ closest_stations 40.444618 -79.954707
 ```
 
-Sample output of your script (meant to illustrate format only):
+Sample output of the script (meant to illustrate format only):
 ```
 Command=closest_stations
 Parameters=40.444618 -79.954707
@@ -82,9 +82,9 @@ Output=
 342887, Fifth Ave & S Dithridge St
 342882, Fifth Ave & S Bouquet St
 ```
-Note that the output starts on a new line and that the station_id is separated by the name of the station using a comma and a space. You should return one station per line, sorted in increasing distance from the provided lat/long coordinates (i.e., first one is the closest).
+Note that the output starts on a new line and that the station_id is separated by the name of the station using a comma and a space. One station is returned per line, sorted in increasing distance from the provided lat/long coordinates (i.e., first one is the closest).
 
-In order to compute the distance, you can use the following function:
+In order to compute the distance, the following function was used:
 
 ```
 from math import cos, asin, sqrt
@@ -103,7 +103,7 @@ Sample invocation:
 python3 bikepgh.py https://api.nextbike.net/maps/gbfs/v1/nextbike_pp/en/ closest_bike 40.444618 -79.954707
 ```
 
-Sample output of your script (meant to illustrate format only):
+Sample output of the script (meant to illustrate format only):
 ```
 Command=closest_bike
 Parameters=40.444618 -79.954707
@@ -118,7 +118,7 @@ Sample invocation:
 python3 bikepgh.py https://api.nextbike.net/maps/gbfs/v1/nextbike_pp/en/ station_bike_avail 40.444618 -79.954707
 ```
 
-Sample output of your script (meant to illustrate format only):
+Sample output of the script (meant to illustrate format only):
 ```
 Command=station_bike_avail
 Parameters=40.444618 -79.954707
