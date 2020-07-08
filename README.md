@@ -63,7 +63,7 @@ Command=percent_avail
 Parameters=342885
 Output=76%
 ```
-In our example, the num_bikes_available was 4, the num_docks_available was 13, so the percent available was 13/(4+13), i.e., 76%. You should appropriately round the percentage to be an integer. To simplify things, always round down (floor), i.e., return the highest integer that is not greater than the number you try to round.
+To simplify things, the percentage is always rounded down (floor).
 
 ### Command #4: Names of three closest HealthyRidePGH stations.
 The command `closest_stations` will return the station_ids and the names of the three closest HealthyRidePGH stations based just on latitude and longtitude (of the stations and of the specified location). The first parameter is the latitude and the second parameter is the longtitude.
